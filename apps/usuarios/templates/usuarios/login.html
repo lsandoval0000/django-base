@@ -1,0 +1,102 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pandemic Horde Inc</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="{% static 'img/icons/favicon.ico' %}"/>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/material-design-iconic-font.min.css' %}">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.login.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.login.css' %}">
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'img/bg-01.jpg' %});">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" method="post">
+                    {% csrf_token %}
+					<span class="login100-form-title p-b-49">
+						Login
+					</span>
+
+                    {% for error in errors %}
+                        <ul style="color: red;">{{ error }}</ul>
+                    {% endfor %}
+                    <br>
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="email" placeholder="Type your email">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" placeholder="Type your password">
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="text-right p-t-8 p-b-31">
+						<a href="#">
+							Forgot password?
+						</a>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+                    <br>
+                    <div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<a href="{% url 'home'%}" class="login100-form-btn">
+                                Go back main page
+                            </a>
+						</div>
+					</div>
+
+
+					<div class="txt1 text-center p-t-54 p-b-20">
+						<span>
+							Or Sign Up Using
+						</span>
+					</div>
+
+					<div class="flex-c-m">
+						<a href="{% url 'social:begin' 'facebook' %}" class="login100-social-item bg1">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="{% url 'social:begin' 'twitter' %}" class="login100-social-item bg2">
+							<i class="fa fa-twitter"></i>
+						</a>
+
+						<a href="{% url 'social:begin' 'google-oauth2' %}" class="login100-social-item bg3">
+							<i class="fa fa-google"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
