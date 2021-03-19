@@ -1,7 +1,7 @@
 django==2.1.7
 psycopg2-binary==2.7.7
 pytz==2018.9
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 social-auth-app-django
 Gunicorn==19.9.0
 WhiteNoise==4.1.2
